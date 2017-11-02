@@ -53,6 +53,7 @@ def telemetry(sid, data):
     if data:
         # The current steering angle of the car
         steering_angle = data["steering_angle"]
+        current_steering_angle = steering_angle
         # The current throttle of the car
         throttle = data["throttle"]
         # The current speed of the car
@@ -65,7 +66,7 @@ def telemetry(sid, data):
 
         throttle = controller.update(float(speed))
 
-        print(steering_angle, throttle)
+        print(current_steering_angle, steering_angle, throttle)
         send_control(steering_angle, throttle)
 
         # save frame
